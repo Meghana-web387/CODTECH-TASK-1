@@ -1,0 +1,134 @@
+/*/ SUMMARY OF THIS PROGRAM /*/
+Input Scale Selection: The user first selects the scale of the input temperature (Celsius, Fahrenheit, or Kelvin).
+
+Temperature Input: The user inputs the temperature value in the selected scale.
+
+Target Scale Selection: The user chooses the scale to convert the temperature to (Celsius, Fahrenheit, or Kelvin).
+
+Conversion and Output:
+
+The program uses a set of functions to handle conversions between each pair of temperature scales.
+Based on the user’s input and target scales, the appropriate conversion function is called.
+The converted temperature is then displayed in the target scale.
+Conversion Functions: Each conversion has a dedicated function:
+
+Celsius to Fahrenheit and Celsius to Kelvin
+Fahrenheit to Celsius and Fahrenheit to Kelvin
+Kelvin to Celsius and Kelvin to Fahrenheit
+Each function uses a specific formula to convert between scales, ensuring accurate results. The program also handles invalid choices gracefully.
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+// Function prototypes
+double celsiusToFahrenheit(double celsius);
+double celsiusToKelvin(double celsius);
+double fahrenheitToCelsius(double fahrenheit);
+double fahrenheitToKelvin(double fahrenheit);
+double kelvinToCelsius(double kelvin);
+double kelvinToFahrenheit(double kelvin);
+
+int main() 
+{
+    int choice;
+    double inputTemp, convertedTemp;
+
+    cout << "Temperature Conversion Program" << endl;
+    cout << "Enter the scale of your input temperature:" << endl;
+    cout << "1. Celsius\n2. Fahrenheit\n3. Kelvin" << endl;
+    cout << "Choice: ";
+    cin >> choice;
+
+    cout << "Enter the temperature to convert: ";
+    cin >> inputTemp;
+
+    int targetScale;
+    cout << "Convert to:" << endl;
+    cout << "1. Celsius\n2. Fahrenheit\n3. Kelvin" << endl;
+    cout << "Choice: ";
+    cin >> targetScale;
+
+    switch (choice) 
+    {
+        case 1: //celcius
+            if (targetScale == 2) 
+            {
+                convertedTemp = celsiusToFahrenheit(inputTemp);
+                cout << "Converted temperature: " << convertedTemp << " Fahrenheit" << endl;
+            } else if (targetScale == 3)
+            {
+                convertedTemp = celsiusToKelvin(inputTemp);
+                cout << "Converted temperature: " << convertedTemp << " Kelvin" << endl;
+            } else
+            {
+                cout << "Invalid target scale." << endl;
+            }
+            break;
+        case 2: // Fahrenheit
+            if (targetScale == 1)
+            {
+                convertedTemp = fahrenheitToCelsius(inputTemp);
+                cout << "Converted temperature: " << convertedTemp << " Celsius" << endl;
+            } else if (targetScale == 3) 
+            {
+                convertedTemp = fahrenheitToKelvin(inputTemp);
+                cout << "Converted temperature: " << convertedTemp << " Kelvin" << endl;
+            } else 
+            {
+                cout << "Invalid target scale." << endl;
+            }
+            break;
+        case 3: // Kelvin
+            if (targetScale == 1) 
+            {
+                convertedTemp = kelvinToCelsius(inputTemp);
+                cout << "Converted temperature: " << convertedTemp << " Celsius" << endl;
+            } else if (targetScale == 2) 
+            {
+                convertedTemp = kelvinToFahrenheit(inputTemp);
+                cout << "Converted temperature: " << convertedTemp << " Fahrenheit" << endl;
+            } else 
+            {
+                cout << "Invalid target scale." << endl;
+            }
+            break;
+        default:
+            cout << "Invalid input scale." << endl;
+    }
+
+    return 0;
+}
+
+double celsiusToFahrenheit(double celsius) 
+{
+    return celsius * 9.0 / 5.0 + 32.0;
+}
+
+double celsiusToKelvin(double celsius) 
+{
+    return celsius + 273.15;
+}
+
+double fahrenheitToCelsius(double fahrenheit) 
+{
+    return (fahrenheit - 32.0) * 5.0 / 9.0;
+}
+
+double fahrenheitToKelvin(double fahrenheit) 
+{
+    return (fahrenheit - 32.0) * 5.0 / 9.0 + 273.15;
+}
+
+double kelvinToCelsius(double kelvin) 
+{
+    return kelvin - 273.15;
+}
+
+double kelvinToFahrenheit(double kelvin) 
+{
+    return (kelvin - 273.15) * 9.0 / 5.0 + 32.0;
+}
