@@ -47,3 +47,34 @@ Possible Extensions
 Graphical Interface: Enhance user interaction with a graphical user interface (GUI).
 More Scales: Add support for other scales like Rankine.
 Error Checking: Add advanced error checking to handle temperatures below absolute zero or very high values.
+
+OUTPUT:
+
+Temperature Conversion Program
+----------------------------------
+Enter the scale of your input temperature:
+1. Celsius
+2. Fahrenheit
+3. Kelvin
+Choice: 2
+
+Enter the temperature to convert: 100
+
+Convert to:
+1. Celsius
+2. Fahrenheit
+3. Kelvin
+Choice: 3
+
+Converted temperature: 310.928 Kelvin
+
+Temperature Conversion Program
+----------------------------------
+Enter the scale of your input temperature:
+1. Celsius
+2. Fahrenheit
+3. Kelvin
+Choice: 4
+
+Invalid input scale. Please restart the program and enter a valid choice.
+
